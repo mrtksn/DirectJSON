@@ -42,7 +42,7 @@ DirectJSON uses Swift Package Manager and all platforms are supported, add it to
 
 **Using Xcode:**
 
-On Xcode click ```File```->```Add Packages...```.
+In Xcode click ```File```->```Add Packages...```.
 
 On the top right corner There is a textbox that says ```Search or Enter Package URL```. 
 
@@ -70,7 +70,7 @@ Then run ```swift build``` command.
 Once you add the package, you can simply include the package and start using it like this:
 
 ```Swift
-import DirectSwift
+import DirectJSON
 
 // ready to use. Just add .json to any String to access the functions
 
