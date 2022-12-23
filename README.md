@@ -1,6 +1,6 @@
 # DirectJSON
 
-A Swift package that enables you to **use JSON intuitively** as if in JavaScript. Just *use dots to access the JSON structure* like this:
+A Swift package which enables you to **use JSON intuitively** as if in JavaScript. Just *use dots to access the JSON structure* like this:
 
 ```Swift
 let brand : String? = theCarsOf2023.json.ev.popular[0].brand
@@ -31,7 +31,7 @@ let population : Int? = countryData.json.facts.population.jsonDecode(myCustomDec
 //You can convert the JSON String directly to any Codable Swift Type
 let country : Country? = countryData.json.jsonDecode()
             
-//Access an array value with index
+//Access array values using index
 let firstTag : String? = countryData.json.tags[0]
 ```
 
@@ -55,10 +55,26 @@ let evs = theCarsOf2023.json.ev.stringify()
 ```
 
 ### Cookbook
-Swift is a Typed language, JavaScript and consequently JSON are not. This creates hardships when converting from JavaScript into Swift. Here we will list ideas on how to solve some og them.
+Swift is a Typed language, JavaScript and consequently JSON are not. This creates hardships when converting from JavaScript into Swift. 
+
+Here we will list ideas on how to solve some common issues like this.
 
 
 Working with Arrays containing multiple types:
+
 ```Swift
+let jobDescription = "{\"title\" : \"developer\", \"tags\" : [\"php\", \"js\", \"swift\", 2022, 2023]}"
+                
+var years = [Int]()
+                
+switch jobDescription.json.tags{
+    case .arrayType(let arr):
+        years = arr.compactMap({ $0.getValue() as? Double }).map({Int($0)})
+    default:
+        break
+}
+print("years:", years)
+//result: years: [2022, 2023]
+
 ```
  
