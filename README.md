@@ -5,7 +5,7 @@ A Swift package that enables you to use JSON intuitively as if in JavaScript.
 
 You can work with any String that is a valid JSON String. Let's look at the following:
 
-```
+```Swift
     // This is our JSON String 
     let countryData = "{\"name\" : \"Türkiye\", \"population\" : 85000000, \"tags\" : [\"Europe\", \"Asia\", \"Middle East\"] }"
     
