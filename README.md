@@ -1,4 +1,5 @@
 # DirectJSON
+[Installation and Usage](#installation-and-usage)
 
 A Swift package which enables you to **use JSON intuitively** as if in JavaScript. Just *use dots to access the JSON structure* like this:
 
@@ -73,7 +74,7 @@ import DirectSwift
 
 // ready to use. Just add .json to any String to access the functions
 
-let stars : Int? = "{\"stars\" : 10}".stars
+let stars : Int? = "{\"stars\" : 10}".json.stars
 // result: Optional(10)
 
 ```
