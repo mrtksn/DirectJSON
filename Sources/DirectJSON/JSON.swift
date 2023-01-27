@@ -167,19 +167,19 @@ public enum JSON: Codable {
     }
 
     public subscript(key : String)->JSON{
-        let keys = key.components(separatedBy: ".")
-        guard keys.count > 1, let currentkey = keys.first else {
-            return getValueForKey(key: key)
+        let keys = key.split(separator: ".", maxSplits: 1)
+        if keys.count > 1, let currentkey = keys.first {
+            return getValueForKey(key: String(currentkey))[String(keys[1])]
         }
-        return self[currentkey]
+        return getValueForKey(key: key)
     }
     
     public subscript<T : Codable>(key : String)->T?{
-        let keys = key.components(separatedBy: ".")
-        guard keys.count > 1, let currentkey = keys.first else {
-            return getDecodedValueForKey(key: key)
+        let keys = key.split(separator: ".", maxSplits: 1)
+        if keys.count > 1, let currentkey = keys.first {
+            return getValueForKey(key: String(currentkey))[String(keys[1])]
         }
-        return self[currentkey]
+        return getDecodedValueForKey(key: key)
     }
 
     
